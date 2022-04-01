@@ -1,4 +1,3 @@
-local gameClick
 return baton.new {
     controls = {
         confirm = {"key:return", "button:start"}
