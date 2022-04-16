@@ -1,8 +1,6 @@
 local _DEBUG = true
 
-function love.load()
-    --love.window.setMode(1280, 720, {resizable=true, vsync=true, minwidth=640, minheight=360})
-    
+function love.load()    
     -- load libriries 
     baton = require "lib.baton"
 	Gamestate = require "lib.gamestate"
