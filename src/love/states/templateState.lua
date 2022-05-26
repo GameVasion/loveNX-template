@@ -7,7 +7,7 @@ return {
 
     end,
 
-    update = function()
+    update = function(dt)
 
     end,
 
