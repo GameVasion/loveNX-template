@@ -3,13 +3,13 @@ local _DEBUG = true
 function love.load()    
     -- load libriries 
     baton = require "lib.baton"
-	Gamestate = require "lib.gamestate"
+    Gamestate = require "lib.gamestate"
     lume = require "lib.lume"
     Timer = require "lib.timer"
     lovesize = require "lib.lovesize"
 
     -- load modules
-    graphics = require "modules.graphics"
+    graphics = require "modules.graphics" -- Module by HTV04 (https://github.com/HTV04)
     input = require "modules.input"
     
     -- load states
