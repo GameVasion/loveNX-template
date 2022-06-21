@@ -23,6 +23,7 @@ function love.load()
 end
 
 function love.update(dt)
+    dt = math.min(dt, 1/30)
     input:update()
     graphics.screenBase(lovesize.getWidth(), lovesize.getHeight())
     Gamestate.update(dt)

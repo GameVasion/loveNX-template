@@ -7,7 +7,7 @@ return {
 
     end,
 
-    update = function(dt)
+    update = function(self, dt)
 
     end,
 
