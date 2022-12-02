@@ -6,7 +6,7 @@ function love.load()
     Gamestate = require "lib.gamestate"
     lume = require "lib.lume"
     Timer = require "lib.timer"
-    lovesize = require "lib.lovesize"
+    push = require "lib.push"
 
     -- load modules
     graphics = require "modules.graphics" -- Module by HTV04 (https://github.com/HTV04)
@@ -16,17 +16,16 @@ function love.load()
     stateName = require "states.templateState"
 
     love.window.setMode(1280, 720, {resizable=true, vsync=true})
-    lovesize.set(1280, 720)
+    push.setupScreen(1280, 720, {upscale = "normal"})
 
-    Gamestate.switch(stateName)
-    
+    Gamestate.registerEvents()
+    Gamestate.switch(stateName) 
 end
 
 function love.update(dt)
     dt = math.min(dt, 1/30)
-    input:update()
+    input:update(dt)
     Timer.update(dt)
-    graphics.screenBase(lovesize.getWidth(), lovesize.getHeight())
     Gamestate.update(dt)
     
     mouseX = love.mouse.getX()
@@ -46,7 +45,7 @@ function love.keypressed(key)
 end
 
 function love.resize(width, height)
-	lovesize.resize(width, height)
+    push.resize(width, height)
 end
 
 function love.mousepressed(x, y, button, istouch, presses)
@@ -54,11 +53,11 @@ function love.mousepressed(x, y, button, istouch, presses)
 end
 
 function love.draw()
-    graphics.screenBase(lovesize.getWidth(), lovesize.getHeight())
-	lovesize.begin()
+    graphics.screenBase(push.getWidth(), push.getHeight())
+    push.start()
         Gamestate.draw()
 
-    lovesize.finish()
+    push.finish()
     graphics.screenBase(love.graphics.getWidth(), love.graphics.getHeight())
     
     if _DEBUG then

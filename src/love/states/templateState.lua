@@ -1,3 +1,4 @@
+local hi
 return {
     enter = function()
         hi = "hi"
@@ -12,6 +13,8 @@ return {
     end,
 
     draw = function()
-        love.graphics.print(hi, 0, 0)
+        love.graphics.push()
+            love.graphics.print(hi, 0, 0)
+        love.graphics.pop()
     end
 }
